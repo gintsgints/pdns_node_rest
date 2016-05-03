@@ -1,0 +1,26 @@
+{
+  "name": "pdns_node_rest",
+  "version": "1.0.0",
+  "description": "PowerDNS rest backend writen in NodeJS and powered by Redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gintsgints/pdns_node_rest.git"
+  },
+  "keywords": [
+    "powerdns",
+    "pdns",
+    "nodejs",
+    "rest",
+    "redis"
+  ],
+  "author": "Gints Polis <polis.gints@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gintsgints/pdns_node_rest/issues"
+  },
+  "homepage": "https://github.com/gintsgints/pdns_node_rest#readme"
+}
