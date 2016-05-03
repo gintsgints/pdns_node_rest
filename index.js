@@ -12,9 +12,17 @@ function request(req, res) {
   switch(req.body.method) {
     case 'lookup':
       console.log('lookup method')
-      client.keys(req.body.parameters.qname, function(err, keys) {
-        var result = {"result":[{"qtype":req.body.parameters.qtype, "qname":req.body.parameters.qname, "content":keys, "ttl": 60}]}
-        res.json(result)
+      var param = req.body.parameters.qtype
+      if (req.body.parameters.qtype === "ANY") {
+        param = "*"
+      }
+      client.keys(param + "," + req.body.parameters.qname, function(err, keys) {
+        if (keys.length === 0) { res.status(404).send('Not found'); }
+        client.get(keys[0], function(err, value) {
+          var result = {"result":[{"qtype":req.body.parameters.qtype, "qname":req.body.parameters.qname, "content":value, "ttl": 60}]}
+          console.log('response is like:', result)
+          res.json(result)
+        })
       });
       break;
     default:
