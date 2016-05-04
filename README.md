@@ -7,4 +7,4 @@ insert record to redis
 
 SET A,www.example.com answer
 
-curl -H "Content-Type: application/json" -X POST -d '{"method":"lookup", "parameters":{"qtype":"ANY", "qname":"www.example.com", "remote":"192.0.2.24", "local":"192.0.2.1", "real-remote":"192.0.2.24", "zone-id":-1}}' http://localhost:3000/dns
+curl -H "Content-Type: application/json" -X GET http://localhost:3000/dns/lookup/www.example.com/A
